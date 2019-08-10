@@ -1,0 +1,60 @@
+<div class="row searchField">
+ <div class="col-sm-6">
+  <div>
+   <label>Task:</label><input type="text" class="grayOut">
+  </div>
+  <div class="row">
+   <div class="col-sm-6">
+    <label>Priority From:</label><input type="text" class="grayOut">
+   </div>
+   <div class="col-sm-6">
+    <label>Priority TO:</label><input type="text" class="grayOut">
+   </div>
+  </div>
+ </div>
+ <div class="col-sm-6">
+  <div>
+   <label>Parent Task:</label><input type="text" class="grayOut">
+  </div>
+  <div class="row">
+   <div class="col-sm-6">
+    <label>Start Date:</label><input type="text" class="grayOut">
+   </div>
+   <div class="col-sm-6">
+    <label>End Date:</label><input type="text" class="grayOut">
+   </div>
+  </div>
+ </div>
+</div>
+<div>
+ <div class="row content" *ngFor="let task of tasks">
+  <div class="col-sm-3">
+   <p>Task</p>
+   <div class="grayOut graybox">{{task.Task}}</div>
+  </div>
+  <div class="col-sm-3">
+   <p>Parent</p>
+   <div class="grayOut graybox">{{task.Parent_Task}}</div>
+  </div>
+  <div class="col-sm-1">
+   <p>Priority</p>
+   <span>{{task.Priority}}</span>
+  </div>
+  <div class="col-sm-1">
+   <p>Start</p>
+   <span>{{task.Start_Date}}</span>
+
+  </div>
+  <div class="col-sm-1">
+   <p>End</p>
+   <span>{{task.End_Date}}</span>
+
+  </div>
+  <div class="col-sm-3">
+   <p>   </p>
+   <button class="btn btn-sec" type="submit" [disabled] = "task.Status == 'Completed'" (click)="editTask(task)">Edit task</button>
+   <button class="btn btn-sec" (click)="endTask(task)">End Task</button>
+  </div>
+
+ </div>
+</div>

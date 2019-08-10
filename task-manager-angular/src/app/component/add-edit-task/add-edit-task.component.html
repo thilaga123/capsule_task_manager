@@ -1,0 +1,34 @@
+<div class="row">
+ <form [formGroup]="form" class="col-sm-4" (ngSubmit)="onSubmit()" autocomplete="off" [class.ng-submitted]="submitted">
+ 
+   <div class="form-group ">
+    <label>Task:</label>
+     <input class="form-control" formControlName="Task" id="Task" placeholder="Task" type="text">
+     <div class="invalid-feedback" *ngIf="hasError('Task','required')">Please type your Task.</div>
+    </div>
+   <div class="form-group ">
+     <label>Priority: {{slider}}</label>
+     <input class="form-control" [(ngModel)]="slider"  formControlName="Priority" id="Priority" placeholder="Priority" type="range" min="1" max="30">
+     <div class="invalid-feedback" *ngIf="hasError('Priority','required')">Please type your Priority.</div>
+   </div>
+   <div class="form-group ">
+     <label>Parent Task:</label>
+     <input class="form-control" formControlName="Parent_Task" id="Parent_Task" placeholder="Parent_Task" type="text">
+     <div class="invalid-feedback" *ngIf="hasError('Parent_Task','required')">Please type your Parent Task.</div>
+   </div>
+   <div class="form-group ">
+     <label>Start Date:</label>
+     <input class="form-control" formControlName="Start_Date" id="Start_Date" placeholder="Start_Date" type="text">
+     <div class="invalid-feedback" *ngIf="hasError('Priority','required')">Please type your Start Date.</div>
+   </div>
+   <div class="form-group ">
+     <label>End Date:</label>
+     <input class="form-control" formControlName="End_Date" id="End_Date" placeholder="End_Date" type="text">
+     <div class="invalid-feedback" *ngIf="hasError('End_Date','required')">Please type your End Date.</div>
+   </div>
+   <div class="form-group text-right">
+     <button class="btn btn-sec" type="submit">{{task ? "update task":'Add task'}}</button>
+     <button class="btn btn-sec" type="reset">Reset</button>
+   </div>
+ </form>
+</div>
