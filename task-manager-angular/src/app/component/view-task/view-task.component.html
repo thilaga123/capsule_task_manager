@@ -1,33 +1,36 @@
 <div class="row searchField">
  <div class="col-sm-6">
   <div>
-   <label>Task:</label><input type="text" class="grayOut">
+   <label>Task:</label><input type="text" class="grayOut" [(ngModel)]="searchTask">
   </div>
   <div class="row">
    <div class="col-sm-6">
-    <label>Priority From:</label><input type="text" class="grayOut">
+    <label>Priority From:</label><input type="text" class="grayOut" [(ngModel)]="searchPriorityFrom">
    </div>
    <div class="col-sm-6">
-    <label>Priority TO:</label><input type="text" class="grayOut">
+    <label>Priority TO:</label><input type="text" class="grayOut" [(ngModel)]="searchPriorityTo" >
    </div>
   </div>
  </div>
  <div class="col-sm-6">
   <div>
-   <label>Parent Task:</label><input type="text" class="grayOut">
+   <label>Parent Task:</label><input type="text" class="grayOut" [(ngModel)]="searchParentTask">
   </div>
   <div class="row">
    <div class="col-sm-6">
-    <label>Start Date:</label><input type="text" class="grayOut">
+    <label>Start Date:</label><input type="text" class="grayOut" [(ngModel)]="searchStartDate">
    </div>
    <div class="col-sm-6">
-    <label>End Date:</label><input type="text" class="grayOut">
+    <label>End Date:</label><input type="text" class="grayOut" [(ngModel)]="searchEndDate">
    </div>
   </div>
  </div>
 </div>
 <div>
- <div class="row content" *ngFor="let task of tasks">
+ <div class="row content" *ngFor="let task of tasks| gridfilter : {Task: searchTask}
+ | gridfilter : {Priority: searchPriorityFrom}| gridfilter : {Priority: searchPriorityTo}
+ | gridfilter : {Parent_Task: searchParentTask}| gridfilter : {Start_Date: searchStartDate}
+ | gridfilter : {End_Date: searchEndDate}">
   <div class="col-sm-3">
    <p>Task</p>
    <div class="grayOut graybox">{{task.Task}}</div>

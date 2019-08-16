@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ViewTaskComponent } from './component/view-task/view-task.component';
 import { AddEditTaskComponent } from './component/add-edit-task/add-edit-task.component';
 import { AppService } from './app.service';
+import { GridfilterPipeModule } from './filters/gridfilter.pipe.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { AppService } from './app.service';
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
+    GridfilterPipeModule,
+    FormsModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
